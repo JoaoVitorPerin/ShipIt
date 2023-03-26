@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+.container{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    width: 15rem;
+    height: 2.5rem;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 0.5rem;
+    font-family: Inter;
+}
+
+h1{
+    font-family: Inter;
+    font-size: 2rem;
+}
+
+h2{
+    font-family: Inter;
+    font-size: 1.3rem;
+}
+
+.login h1{
+    color: #FFFFFF;
+}
+
+.login h2{
+    color: #FFFFFF;
+}
+
+.login input::placeholder{
+    color: #004AAD;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #004AAD;
+    padding: 5rem;
+    border-top-left-radius: 1.3rem;
+    border-bottom-left-radius: 1.3rem;
+}
+
+.login button{
+    background-color: #FFFFFF;
+    border-radius: 0.8rem;
+    font-family: Inter;
+    font-size: 1rem;
+    color: #004AAD;
+}
+
+.cadastro{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #D9D9D9;
+    padding: 5rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    border-top-right-radius: 1.3rem;
+    border-bottom-right-radius: 1.3rem;
+}
+
+.cadastro input{
+    background-color: #004AAD;
+}
+
+.cadastro input::placeholder{
+    color: #FFFFFF;
+}
+
+.cadastro button{
+    width: 12rem;
+    background-color:#004AAD;
+    border-radius: 0.8rem;
+    font-family: Inter;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.cadastro h1{
+    color: #004AAD;
+}
+
+.logoCadastro{
+    height: 70px;
+}
