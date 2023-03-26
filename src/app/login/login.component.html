@@ -8,9 +8,11 @@
         <br>
         <button mat-raised-button color="primary">ENTRAR</button>
     </div>
-
+    
     <div class="cadastro">
-        <img class="logoCadastro" src="../../assets/images/logoHorizontal.png">
+        <a routerLink="/home">
+            <img class="logoCadastro" src="../../assets/images/logoHorizontal.png">
+        </a>
         <h1>Crie a sua conta!</h1>
         <input type="text" placeholder="Usuário">
         <br>
@@ -18,7 +20,7 @@
         <br>
         <input type="email" placeholder="Email">
         <br>
-        <input type="date" placeholder="Data de nascimento">
+        <input type="date" placeholder="Data de nascimento" class="datepicker">
         <br>
         <input type="password" placeholder="Senha">
         <br>

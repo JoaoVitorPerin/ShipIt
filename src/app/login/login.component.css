@@ -39,6 +39,10 @@ h2{
     color: #004AAD;
 }
 
+.datepicker{
+    color: #FFFFFF;
+}
+
 .login{
     display: flex;
     flex-direction: column;
