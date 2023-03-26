@@ -1,0 +1,13 @@
+img {
+    cursor: pointer;
+    height: 4rem;
+}
+
+.icones{
+    display: flex;
+    gap: 2rem;
+}
+
+.icones img{
+    height: 3rem;
+}
