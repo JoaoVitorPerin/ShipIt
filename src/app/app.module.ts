@@ -11,13 +11,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { CarrouselComponent } from './carrousel/carrousel.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavBarComponent,
-    CarrouselComponent
+    CarrouselComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
