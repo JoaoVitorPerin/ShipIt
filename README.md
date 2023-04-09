@@ -1,6 +1,20 @@
 # ShipIt
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Projeto desenvolvido para o curso de Experiência Criativa: Projetando Sistemas de Informação. Com o uso das seguintes tecnologias:
+  - Java
+  - Spring Boot
+  - HTML
+  - CSS
+  - Angular
+  - Bootstrap
+  - Jquery
+  - Popper.js
+ 
+ Alunos:
+ - Gabriel de Freitas Lima
+ - Igor Rubio Lazaroto
+ - João Vitor Perin
+ - Thiago Jungles Caron
 
 ## Development server
 
