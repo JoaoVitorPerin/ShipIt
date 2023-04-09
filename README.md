@@ -11,10 +11,10 @@ Projeto desenvolvido para o curso de Experiência Criativa: Projetando Sistemas 
   - Popper.js
  
  Alunos:
- Gabriel de Freitas Lima
- Igor Rubio Lazaroto
- João Vitor Perin
- Thiago Jungles Caron
+ - Gabriel de Freitas Lima
+ - Igor Rubio Lazaroto
+ - João Vitor Perin
+ - Thiago Jungles Caron
 
 ## Development server
 
