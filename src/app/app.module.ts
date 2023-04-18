@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { HomeComponent } from './home/home.component';
 import { CadastroItemComponent } from './cadastro-item/cadastro-item.component';
+import { CardsComponent } from './cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CadastroItemComponent } from './cadastro-item/cadastro-item.component';
     NavBarComponent,
     CarrouselComponent,
     HomeComponent,
-    CadastroItemComponent
+    CadastroItemComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
