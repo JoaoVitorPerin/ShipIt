@@ -3,8 +3,9 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin: 3rem;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 h5{
