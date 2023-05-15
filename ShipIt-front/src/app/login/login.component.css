@@ -61,6 +61,11 @@ h2{
     color: #004AAD;
 }
 
+.logoLogin{
+    display: none;
+    height: 70px;
+}
+
 .cadastro{
     display: flex;
     justify-content: center;
@@ -76,6 +81,7 @@ h2{
 
 .cadastro input{
     background-color: #004AAD;
+
 }
 
 .cadastro input::placeholder{
@@ -97,4 +103,38 @@ h2{
 
 .logoCadastro{
     height: 70px;
+}
+
+@media(max-width: 770px){
+    .container{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .login{
+        align-items: center;
+        justify-content: center;
+        border-radius: 1.3rem 1.3rem 0rem 0rem;
+    }
+
+    .cadastro{
+        align-items: center;
+        justify-content: center;
+        border-radius: 0rem 0rem 1.3rem 1.3rem;
+    }
+
+    .logoLogin{
+        display: block;
+        height: 70px;
+    }
+
+    .logoCadastro{
+        display: none;
+    }
+}
+
+@media(max-width: 400px){
+    .container{
+        margin-top: 8rem;
+    };
 }
