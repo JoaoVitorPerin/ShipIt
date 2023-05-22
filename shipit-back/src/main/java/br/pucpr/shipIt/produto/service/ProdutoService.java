@@ -28,7 +28,8 @@ public class ProdutoService {
             produtoRepository.save(produto);
             //utx.commit();
         } catch (Exception e) {
-            //return e.getMessage()
+            e.printStackTrace();
+            //return e.getMessage();
             //utx.rollback();
         }
     }

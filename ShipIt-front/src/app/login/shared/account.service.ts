@@ -27,8 +27,8 @@ export class AccountService {
     return this.httpClient.post<any>("http://localhost:8080/usuario/login",autenticacao);
   }
 
-  salvar(usuarioModel : UsuarioModel){
-    return this.httpClient.post<UsuarioModel>("http://localhost:8080/usuario/salvar",usuarioModel);
+  salvar(usuarioModel : any){
+    return this.httpClient.post<any>("http://localhost:8080/usuario/salvar",usuarioModel);
   }
 
   listar(){

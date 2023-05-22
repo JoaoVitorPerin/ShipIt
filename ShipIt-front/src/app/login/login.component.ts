@@ -56,6 +56,8 @@ export class LoginComponent {
 
     this.accountService.salvar(usuario).subscribe(usuarioRetorno => {
       console.log('funcionou');
+      console.log(usuarioRetorno);
+      localStorage.setItem('token',usuarioRetorno.token);
       window.location.href = "/login";
     }, erro => {
       console.log(erro);
