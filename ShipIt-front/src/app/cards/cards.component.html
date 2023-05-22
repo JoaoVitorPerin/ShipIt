@@ -1,11 +1,11 @@
-<div class="cards_produtos">
+<div class="cards_produtos" *ngFor=" let produto of listProdutos ">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="../../assets/images/canecaThiago.jpg" alt="Imagem de capa do card">
+        <img class="card-img-top" src="{{produto.pathProduto}}" alt="Imagem de capa do card">
         <div class="card-body">
-            <h5 class="card-title">Caneco do Thiago</h5>
-            <p class="card-text">Etiam sit amet eleifend risus. Pellentesque at ullamcorper augue, vel laoreet risus. </p>
+            <h5 class="card-title">{{produto.nomeProduto}}</h5>
+            <p class="card-text">{{produto.descricaoProduto}}</p>
             <div class="div_info">
-                <p class="preco">R$ 2.00</p>
+                <p class="preco">R$ {{produto.valorProduto}}</p>
                 <a href="#" class="botao_comprar">COMPRAR</a>
             </div>
         </div>
