@@ -1,6 +1,7 @@
 package br.pucpr.shipIt.pedido.entity;
 
 
+import br.pucpr.shipIt.pagamento.entity.Pagamento;
 import br.pucpr.shipIt.usuario.entity.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

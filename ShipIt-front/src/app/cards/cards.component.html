@@ -1,5 +1,5 @@
-<div class="cards_produtos" *ngFor=" let produto of listProdutos ">
-    <div class="card" style="width: 18rem;">
+<div class="cards_produtos">
+    <div class="card" style="width: 18rem;" *ngFor=" let produto of listProdutos ">
         <img class="card-img-top" src="{{produto.pathProduto}}" alt="Imagem de capa do card">
         <div class="card-body">
             <h5 class="card-title">{{produto.nomeProduto}}</h5>
