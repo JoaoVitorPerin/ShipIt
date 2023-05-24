@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 main{
     width: 100%;
     display: flex;
@@ -5,10 +7,9 @@ main{
     align-items: center;
     padding: 50px;
     gap: 30px;
-}
-
-main img{
-    width: 25rem;
+    img{
+        width: 25rem;
+    }
 }
 
 .formulario{
@@ -16,14 +17,14 @@ main img{
 }
 
 .botao_cadastrar{
-    background-color: #004AAD;
+    background-color: $cor-principal;
     padding: 10px 20px;
-    color: #ffffff;
+    color: $cor-secundaria;
     border-radius: 0.6rem;
     text-decoration: none;
     border: none;
 }
 
 .botao_cadastrar:hover{
-    background-color: #0068ef;
+    background-color: $hover-principal-light;
 }
