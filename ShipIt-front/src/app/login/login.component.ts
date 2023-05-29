@@ -27,6 +27,10 @@ export class LoginComponent {
   ) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("theme") == "dark"){
+      const body = document.body;
+      body.classList.toggle('bg-dark');
+    }
   }
 
   login(){

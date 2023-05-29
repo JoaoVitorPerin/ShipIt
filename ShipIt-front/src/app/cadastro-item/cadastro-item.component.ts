@@ -8,6 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./cadastro-item.component.scss']
 })
 export class CadastroItemComponent {
+  ngOnInit(): void {
+    if(localStorage.getItem("theme") == "dark"){
+      const body = document.body;
+      body.classList.toggle('bg-dark');
+    }
+  }
+
   //Atributos para cadastro de produto
   public nomeProduto: string = '';
   public descricaoProduto: string = '';

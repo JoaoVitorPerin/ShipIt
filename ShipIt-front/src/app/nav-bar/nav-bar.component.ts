@@ -7,46 +7,33 @@ import { Component } from '@angular/core';
 })
   
 export class NavBarComponent {
-
+  public isDarkTheme = false;
   public isIconsToggled: boolean = false;
-  
-  public toggleIcons() {
-    this.isIconsToggled = !this.isIconsToggled;
-    const logo = document.getElementById('logo') as HTMLImageElement;
-    const imgPerfil = document.getElementById('img-perfil') as HTMLImageElement;
-    const imgCarrinho = document.getElementById('img-carrinho') as HTMLImageElement;
-    const imgTheme = document.getElementById('img-theme') as HTMLImageElement;
+  public body = document.body;
 
-    if (this.isIconsToggled) {
-      logo.src = '../../assets/images/logoBranca.png';
-      imgPerfil.src = '../../assets/icons/user-light.svg';
-      imgCarrinho.src = '../../assets/icons/cart-light.svg';
-      imgTheme.src = '../../assets/icons/sun-light.svg';
-    } else {
-      logo.src = '../../assets/images/logoHorizontal.png';
-      imgPerfil.src = '../../assets/icons/user-dark.svg';
-      imgCarrinho.src = '../../assets/icons/cart-dark.svg';
-      imgTheme.src = '../../assets/icons/moon-dark.svg';
+  ngOnInit() {
+    var theme = localStorage.getItem("theme");
+    if(theme === 'dark'){
+      this.isDarkTheme = true;
+      this.body.classList.remove('bg-light');
+      this.body.classList.add('bg-dark');
+    }else{
+      this.isDarkTheme = false;
+      this.body.classList.remove('bg-dark');
+      this.body.classList.toggle('bg-light');
     }
   }
 
   public toggle(){
-    const body = document.body;
-    const header = document.getElementById('header');
-    const busca = document.getElementById('botao-busca');
+    this.body.style.transition = 'background-color 200ms';
+    this.body.classList.toggle('bg-dark');
 
-    body.style.transition = 'background-color 200ms';
-    body.classList.toggle('bg-dark');
-
-    if (header) {
-      header.style.transition = 'background-color 200ms';
-      header.classList.toggle('bg-dark');
+    if (localStorage.getItem("theme") == "light"){
+      localStorage.setItem("theme", "dark");
+    }else{
+      localStorage.setItem("theme", "light");
     }
 
-    if (busca) {
-      busca.style.transition = 'border-color 200ms';
-      busca.classList.toggle('btn-outline-light');
-    }
-    this.toggleIcons();
+    this.isDarkTheme = !this.isDarkTheme;
   }
 }
