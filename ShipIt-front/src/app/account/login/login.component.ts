@@ -1,7 +1,7 @@
-import { Autenticacao } from './model/login.model';
-import { AccountService } from './shared/account.service';
+import { Autenticacao } from '../model/login.model';
+import { AccountService } from '../shared/account.service';
 import { Component } from '@angular/core';
-import { UsuarioModel } from './model/usuario.model';
+import { UsuarioModel } from '../model/usuario.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

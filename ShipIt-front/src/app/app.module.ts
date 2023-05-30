@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './account/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { CadastroItemComponent } from './cadastro-item/cadastro-item.component';
 import { CardsComponent } from './cards/cards.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavBarRestrictComponent } from './nav-bar-restrict/nav-bar-restrict.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     CarrouselComponent,
     HomeComponent,
     CadastroItemComponent,
-    CardsComponent
+    CardsComponent,
+    NavBarRestrictComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

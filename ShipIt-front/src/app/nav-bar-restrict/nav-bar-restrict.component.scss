@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import '../../styles.scss';
+
+.logo{
+    height: 60px;
+}
+
+.icone{
+    height: 35px;
+}
+
+.icone-moon{
+    height: 28px;
+}
+
+.texto-nav-link{
+    display: none;
+}
+
+.image-transition {
+    transition: all 300ms ease;
+  }
+
+@media (max-width: 800px){
+    .texto-nav-link{
+        font-family: Inter;
+        display: block;
+        color: $cor-principal;
+        font-size: 1.5rem;
+    }
+
+    .input-busca{
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px){
+    .input-busca{
+        width: 75%;
+    }
+}
