@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="card" style="margin: 20px;">
+    <img src="../../../assets/images/STATIONERY.png" width="300px"  class="d-block w-100" alt="...">
+    <h2 class="card-header" style="background-color: #004AAD; color: #1C98ED;">GERENCIAR OPERADORES</h2>
+    <div class="row" style="margin: 5px;">
+      <div class="col-sm-8">
+        <div class="div-card" id="testando">
+          <table mat-table [dataSource]="usuarios" class="mat-elevation-z8" style="width: 100%" >
+            <ng-container matColumnDef="idUsuario">
+              <th mat-header-cell *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let usuario"> {{usuario.idUsuario}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nomeUsuario">
+              <th mat-header-cell *matHeaderCellDef> Nome </th>
+              <td mat-cell *matCellDef="let usuario"> {{usuario.nomeUsuario}} </td>
+            </ng-container>
+            <ng-container matColumnDef="emailUsuario">
+              <th mat-header-cell *matHeaderCellDef> Login </th>
+              <td mat-cell *matCellDef="let usuario"> {{usuario.emailUsuario}} </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef> Ações </th>
+              <td><button mat-raised-button style="background-color: #FF4C4C; color: white;"   *matCellDef="let usuario" (click)='deletar(usuario.idUsuario)' class="botao-deletar">REMOVER</button></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <h2 class="card-header" style="background-color: #004AAD; color: #1C98ED;">Mais opções</h2>
+          <div class="card-body">
+            <a href="/admin" class="btn btn-primary" style="background-color: #004AAD;">VOLTAR</a>
+            <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
