@@ -35,11 +35,6 @@ export class AccountService {
     return this.httpClient.get<UsuarioModel[]>("http://localhost:8080/usuario/listarAll");
   }
 
-  getAuthorizationToken() {
-    const token = window.localStorage.getItem('token');
-    return token;
-  }
-
   deletar(usuarioid:number):Observable<number>{
     let httpheaders=new HttpHeaders()
     .set('Content-type','application/Json');

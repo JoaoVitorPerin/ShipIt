@@ -35,8 +35,7 @@ public class UsuarioResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
-    @GetMapping
-    @RolesAllowed("USUARIO")
+    @GetMapping("/listarAll")
     public List<Usuario> listar() {
         return usuarioService.listar();
     }

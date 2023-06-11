@@ -2,6 +2,7 @@ import { Autenticacao } from '../model/login.model';
 import { AccountService } from '../shared/account.service';
 import { Component } from '@angular/core';
 import { UsuarioModel } from '../model/usuario.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,6 +25,7 @@ export class LoginComponent {
 
   constructor(
     private accountService: AccountService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -38,8 +40,9 @@ export class LoginComponent {
     autenticacao.login = this.nomeUsuarioLogin;
     autenticacao.senha = this.senhaUsuarioLogin;
     this.accountService.login(autenticacao).subscribe(result => {
-      console.log(result)
       localStorage.setItem("token",result.token);
+      // navego para a rota vazia novamente
+      this.router.navigate(['admin']);
     });
   }
 

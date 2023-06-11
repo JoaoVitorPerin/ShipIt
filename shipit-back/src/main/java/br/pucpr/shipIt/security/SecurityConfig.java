@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers(HttpMethod.GET).permitAll()
                         .requestMatchers(antMatcher("/error/**")).permitAll()
-                        .requestMatchers(HttpMethod.POST, "/usuario/salvar", "/usuario/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/usuario/salvar", "/usuario/login", "/usuario/listarAll").permitAll()
                         //.requestMatchers(antMatcher("/h2-console/**")).permitAll()
                         .anyRequest().authenticated()
                 )

@@ -7,6 +7,7 @@ import { CadastroItemComponent } from './produto/cadastro-item/cadastro-item.com
 import { NavBarRestrictComponent } from './nav-bar-restrict/nav-bar-restrict.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdminComponent } from './admin/admin.component';
+import { OperadoresComponent } from './account/operadores/operadores.component';
 const routes: Routes = [
   {
     path: '',
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'cadastro-produto', title: 'ShipIt - Cadastro Produtos' ,component: CadastroItemComponent },
       { path: 'admin', title: 'ShipIt - Configurações' ,component: AdminComponent },
+      { path: 'operadores', title: 'ShipIt - Configurações' ,component: OperadoresComponent },
     ],
     canActivate: [AuthGuard]
   },

@@ -18,6 +18,10 @@ import { CardsComponent } from './produto/cards/cards.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarRestrictComponent } from './nav-bar-restrict/nav-bar-restrict.component';
 import { AdminComponent } from './admin/admin.component';
+import { OperadoresComponent } from './account/operadores/operadores.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { AdminComponent } from './admin/admin.component';
     CadastroItemComponent,
     CardsComponent,
     NavBarRestrictComponent,
-    AdminComponent
+    AdminComponent,
+    OperadoresComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,9 @@ import { AdminComponent } from './admin/admin.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
