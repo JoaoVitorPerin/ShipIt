@@ -1,0 +1,40 @@
+<main>
+    <a [routerLink]="['/home']"><img src="../../assets/images/logoHorizontal.png" alt="Logo ShipIt"></a>
+    <form class="formulario">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome:</label>
+            <input type="text" class="form-control" placeholder="Ex. Caneca do Thiago" name="nomeProduto" [(ngModel)]= "nomeProduto">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Descrição do produto:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ex. caneca preta, cuidada com muito carinho e muito bonita" name="descricaoProduto" [(ngModel)]= "descricaoProduto"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Preço:</label>
+            <input type="number" class="form-control" placeholder="Ex. 200,00" name="valorProduto"[(ngModel)]= "valorProduto">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Quantidade:</label>
+            <input type="number" class="form-control" placeholder="Ex. 50" name="quantidadeEstoqueProduto" [(ngModel)]= "quantidadeEstoqueProduto">
+          </div>
+          <input type="file" (change)="onFileSelected($event)" #fileUpload>
+          <div class="file-upload">
+            <p *ngIf="mensagem">
+              {{mensagem}}
+            </p>
+            <p>
+              {{nomeArquivo || 'Nenhum arquivo utilizado.'}}
+            </p>
+          </div>
+          <!--div-- class="form-group">
+            <label for="exampleFormControlFile1">Upload da imagem:</label>
+            <input type="file" class="form-control-file" (change)="uploadArquivo(this)">
+          </!--div-->
+          <!--div class="form-group">
+            <label for="exampleInputEmail1">Path Imagem:</label>
+            <input type="text" class="form-control" name="pathImg" [(ngModel)]= "pathImg">
+          </!--div-->
+    </form>
+    <button type="button" class="botao_cadastrar" (click)="salvar()">CADASTRAR</button>
+    <button type="button" class="botao_cadastrar" (click)="listar()">LISTAR</button>
+</main>

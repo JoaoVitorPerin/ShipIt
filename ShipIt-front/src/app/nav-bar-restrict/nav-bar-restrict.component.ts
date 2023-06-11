@@ -24,6 +24,11 @@ export class NavBarRestrictComponent {
     }
   }
 
+  sair(){
+    window.localStorage.removeItem('token');
+    window.location.href = '/home';
+  }
+
   public toggle(){
     this.body.style.transition = 'background-color 200ms';
     this.body.classList.toggle('bg-dark');

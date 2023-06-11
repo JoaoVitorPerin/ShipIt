@@ -3,9 +3,10 @@ import { AuthGuard } from './account/shared/auth.guard';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { LoginComponent } from './account/login/login.component';
 import { HomeComponent } from './home/home.component';
-import { CadastroItemComponent } from './cadastro-item/cadastro-item.component';
+import { CadastroItemComponent } from './produto/cadastro-item/cadastro-item.component';
 import { NavBarRestrictComponent } from './nav-bar-restrict/nav-bar-restrict.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
   {
     path: '',
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'cadastro-produto', title: 'ShipIt - Cadastro Produtos' ,component: CadastroItemComponent },
+      { path: 'admin', title: 'ShipIt - Configurações' ,component: AdminComponent },
     ],
     canActivate: [AuthGuard]
   },

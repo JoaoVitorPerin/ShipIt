@@ -13,10 +13,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { HomeComponent } from './home/home.component';
-import { CadastroItemComponent } from './cadastro-item/cadastro-item.component';
-import { CardsComponent } from './cards/cards.component';
+import { CadastroItemComponent } from './produto/cadastro-item/cadastro-item.component';
+import { CardsComponent } from './produto/cards/cards.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarRestrictComponent } from './nav-bar-restrict/nav-bar-restrict.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavBarRestrictComponent } from './nav-bar-restrict/nav-bar-restrict.com
     HomeComponent,
     CadastroItemComponent,
     CardsComponent,
-    NavBarRestrictComponent
+    NavBarRestrictComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
