@@ -28,7 +28,6 @@ public class FirebaseImageService implements IImageService {
     @EventListener
     public void init(ApplicationReadyEvent event) {
         // initialize Firebase
-
         try {
             ClassPathResource serviceAccount = new ClassPathResource("/firebase.json");
             FirebaseOptions options = new FirebaseOptions.Builder()
@@ -50,10 +49,12 @@ public class FirebaseImageService implements IImageService {
     public String save(MultipartFile file) throws IOException {
         Bucket bucket = StorageClient.getInstance().bucket();
         String name = generateFileName(file.getOriginalFilename());
-        //Alterar este código para retornar o bloob - nele tem o token e as informações necessárias para o retorno
-        bucket.create(name, file.getBytes(), file.getContentType());
-        System.out.println(getImageUrl(name));
-        return name;
+        Blob retorno = bucket.create(name, file.getBytes(), file.getContentType());
+        String content = "";
+        StringBuilder builder = new StringBuilder();
+        builder.append(name);
+        content = builder.toString();
+        return content;
     }
 
     @Override
@@ -91,6 +92,7 @@ public class FirebaseImageService implements IImageService {
         private String bucketName;
 
         private String imageUrl;
+
     }
 
 }

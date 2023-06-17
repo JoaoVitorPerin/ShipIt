@@ -1,6 +1,7 @@
 package br.pucpr.shipIt.security;
 
 import br.pucpr.shipIt.usuario.entity.Usuario;
+import com.google.cloud.ByteArray;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.jackson.io.JacksonDeserializer;
 import io.jsonwebtoken.jackson.io.JacksonSerializer;
@@ -12,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import java.io.ByteArrayOutputStream;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Collections;
@@ -39,7 +41,6 @@ public class JWT {
                 Collections.emptySet()
                 //usuario.getRoles()
         );
-
         return Jwts.builder()
                 .signWith(Keys.hmacShaKeyFor(SECRET.getBytes()))
                 .serializeToJsonWith(new JacksonSerializer<>())

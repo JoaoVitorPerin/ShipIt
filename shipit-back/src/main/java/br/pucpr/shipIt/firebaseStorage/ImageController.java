@@ -17,19 +17,21 @@ public class ImageController {
     IImageService imageService;
 
     @PostMapping("/salvar")
-    public ResponseEntity create(@RequestParam(name = "file") MultipartFile file) {
-        //for (MultipartFile file : files) {
-            try {
-                String fileName = imageService.save(file);
-                String imageUrl = imageService.getImageUrl(fileName);
-                // do whatever you want with that
-                //return new ResponseEntity<>(file, HttpStatus.OK);
-                return ResponseEntity.ok(imageUrl);
-            } catch (Exception e) {
-                System.out.println(e);
-                return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-            }
-        //}
+    public ResponseEntity<Image> create(@RequestParam(name = "file") MultipartFile file) {
+        try {
+            String fileName = imageService.save(file);
+            String imageUrl = imageService.getImageUrl(fileName);
 
+            // do whatever you want with that
+            //return new ResponseEntity<>(file, HttpStatus.OK);
+            Image image = new Image();
+            image.setPath(imageUrl);
+            return new ResponseEntity<>(image, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e);
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
     }
+
+
 }

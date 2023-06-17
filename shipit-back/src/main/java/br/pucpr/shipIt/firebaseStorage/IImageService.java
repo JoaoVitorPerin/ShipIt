@@ -27,17 +27,11 @@ public interface IImageService {
     }
 
     default byte[] getByteArrays(BufferedImage bufferedImage, String format) throws IOException {
-
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
         try {
-
             ImageIO.write(bufferedImage, format, baos);
-
             baos.flush();
-
             return baos.toByteArray();
-
         } catch (IOException e) {
             throw e;
         } finally {

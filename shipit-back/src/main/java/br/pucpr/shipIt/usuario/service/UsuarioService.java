@@ -37,7 +37,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    @RolesAllowed("USUARIO")
+    //@RolesAllowed("USUARIO")
     public List<Usuario> listar() {
         return usuarioRepository.findAll();
     }
