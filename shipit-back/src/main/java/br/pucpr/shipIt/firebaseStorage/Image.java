@@ -1,4 +1,4 @@
-package br.pucpr.shipIt.pagamento.entity;
+package br.pucpr.shipIt.firebaseStorage;
 
 
 public class Image {
