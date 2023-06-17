@@ -1,5 +1,6 @@
 package br.pucpr.shipIt.produto.entity;
 
+import br.pucpr.shipIt.usuario.entity.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -19,6 +20,12 @@ public class Produto {
     @Column(name = "descricao_produto", nullable = false, length = 255)
     private String descricaoProduto;
 
+    @Column(name = "nome_produto", nullable = true, length = 255)
+    private String nomeProduto;
+
+    @Column(name = "categoria_produto", nullable = true, length = 45)
+    private String categoriaProduto;
+
     @NotNull(message = "O valor total do produto é uma informação obrigatória")
     @Column(name = "valor_produto")
     private Double valorProduto;
@@ -29,6 +36,10 @@ public class Produto {
 
     @Column(name = "path_produto", nullable = false)
     private String pathProduto;
+
+    @ManyToOne
+    @JoinColumn(name="usuario_id_usuario", referencedColumnName="id_usuario")
+    private Usuario usuarioIdUsuario;
 
     public Long getIdProduto() {
         return idProduto;
@@ -68,6 +79,30 @@ public class Produto {
 
     public void setPathProduto(String pathProduto) {
         this.pathProduto = pathProduto;
+    }
+
+    public Usuario getUsuarioIdUsuario() {
+        return usuarioIdUsuario;
+    }
+
+    public void setUsuarioIdUsuario(Usuario usuarioIdUsuario) {
+        this.usuarioIdUsuario = usuarioIdUsuario;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public String getCategoriaProduto() {
+        return categoriaProduto;
+    }
+
+    public void setCategoriaProduto(String categoriaProduto) {
+        this.categoriaProduto = categoriaProduto;
     }
 
     @Override

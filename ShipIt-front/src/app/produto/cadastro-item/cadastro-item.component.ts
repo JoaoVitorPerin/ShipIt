@@ -2,6 +2,7 @@ import { CadastroItemModel } from '../model/cadastro_item.model';
 import { ItemService } from '../shared/item.service';
 import { HttpClient, HttpEventType, HttpProgressEvent } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
+import { AccountService } from 'src/app/account/shared/account.service';
 @Component({
   selector: 'app-cadastro-item',
   templateUrl: './cadastro-item.component.html',
@@ -13,6 +14,7 @@ export class CadastroItemComponent implements OnInit {
       const body = document.body;
       body.classList.toggle('bg-dark');
     }
+
   }
 
   //Atributos para cadastro de produto

@@ -1,5 +1,6 @@
 package br.pucpr.shipIt.pagamento.entity;
 
+import br.pucpr.shipIt.usuario.entity.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
@@ -19,6 +20,10 @@ public class Pagamento {
     @NotNull(message = "A forme de pagamento é um informação obrigatória")
     @Column(name = "formaPgto_pagamento", nullable = false, length = 255)
     private String formaPgtoPagamento;
+
+    @ManyToOne
+    @JoinColumn(name="usuario_id_usuario", referencedColumnName="id_usuario")
+    private Usuario usuarioIdUsuario;
 
     public Long getIdPagamento() {
         return idPagamento;
@@ -42,6 +47,14 @@ public class Pagamento {
 
     public void setFormaPgtoPagamento(String formaPgtoPagamento) {
         this.formaPgtoPagamento = formaPgtoPagamento;
+    }
+
+    public Usuario getUsuarioIdUsuario() {
+        return usuarioIdUsuario;
+    }
+
+    public void setUsuarioIdUsuario(Usuario usuarioIdUsuario) {
+        this.usuarioIdUsuario = usuarioIdUsuario;
     }
 
     @Override
