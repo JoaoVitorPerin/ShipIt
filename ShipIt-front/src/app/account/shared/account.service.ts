@@ -32,8 +32,15 @@ export class AccountService {
   }
 
   listar(){
-    return this.httpClient.get<UsuarioModel[]>("http://localhost:8080/usuario/listarAll");
+    let httpheaders=new HttpHeaders()
+    .set('Content-type','application/Json')
+    .set('Authorization','Bearer ' + localStorage.getItem('token'));
+    let options={
+      headers:httpheaders
+    };
+    return this.httpClient.get<UsuarioModel[]>("http://localhost:8080/usuario/listarAll", options);
   }
+
 
   deletar(usuarioid:number):Observable<number>{
     let httpheaders=new HttpHeaders()

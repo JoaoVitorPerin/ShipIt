@@ -22,18 +22,7 @@
             <p *ngIf="mensagem">
               {{mensagem}}
             </p>
-            <p>
-              {{nomeArquivo || 'Nenhum arquivo utilizado.'}}
-            </p>
           </div>
-          <!--div-- class="form-group">
-            <label for="exampleFormControlFile1">Upload da imagem:</label>
-            <input type="file" class="form-control-file" (change)="uploadArquivo(this)">
-          </!--div-->
-          <!--div class="form-group">
-            <label for="exampleInputEmail1">Path Imagem:</label>
-            <input type="text" class="form-control" name="pathImg" [(ngModel)]= "pathImg">
-          </!--div-->
     </form>
     <button type="button" class="botao_cadastrar" (click)="salvar()">CADASTRAR</button>
     <button type="button" class="botao_cadastrar" (click)="listar()">LISTAR</button>

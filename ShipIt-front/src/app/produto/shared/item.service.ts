@@ -23,12 +23,12 @@ export class ItemService {
   upload(formData : FormData){
     console.log("-------------------arquivoooooooooooooooo-----------------")
     let httpheaders=new HttpHeaders()
-    //.set('Content-type','multipart/form-data')
+    //.set('Content-type','application/Json')
     .set('Authorization','Bearer ' + localStorage.getItem('token'));
     let options={
       headers:httpheaders
     };
-    return this.httpClient.post("http://localhost:8080/upload/salvar", formData, options);
+    return this.httpClient.post<any>("http://localhost:8080/upload/salvar", formData, options);
   }
 
   listar(){
@@ -37,11 +37,12 @@ export class ItemService {
 
   deletar(itemId:number):Observable<number>{
     let httpheaders=new HttpHeaders()
-    .set('Content-type','application/Json');
+      .set('Content-type','application/Json')
+      .set('Authorization','Bearer ' + localStorage.getItem('token'))
     let options={
       headers:httpheaders
     };
-    return this.httpClient.delete<number>("http://localhost:8090/produto"+ "/" + itemId);
+    return this.httpClient.delete<number>("http://localhost:8080/produto"+ "/" + itemId, options);
   }
 
 }

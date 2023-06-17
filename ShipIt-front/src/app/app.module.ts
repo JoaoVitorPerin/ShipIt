@@ -22,6 +22,7 @@ import { OperadoresComponent } from './account/operadores/operadores.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
+import { ProdutosComponent } from './produto/produtos/produtos.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatCardModule } from '@angular/material/card';
     NavBarRestrictComponent,
     AdminComponent,
     OperadoresComponent,
+    ProdutosComponent,
   ],
   imports: [
     BrowserModule,

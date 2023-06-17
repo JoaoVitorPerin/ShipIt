@@ -23,7 +23,7 @@ export class CadastroItemComponent implements OnInit {
   public mensagem: string = '';
   public nomeArquivo: string = '';
   public formData = new FormData;
-
+  public pathProduto : string = '';
   constructor(
     private itemService: ItemService,
     private http: HttpClient,
@@ -55,21 +55,22 @@ export class CadastroItemComponent implements OnInit {
     produto.descricaoProduto = this.descricaoProduto;
     produto.valorProduto = this.valorProduto;
     produto.quantidadeEstoqueProduto = this.quantidadeEstoqueProduto;
-    //produto.pathProduto = this.pathImg;
 
     console.log(this.formData)
     this.itemService.upload(this.formData).subscribe(uploadRetorno => {
-      console.log(uploadRetorno)
-      console.log('funcionou upload');
+      console.log(uploadRetorno.path);
+      this.pathProduto = uploadRetorno.path;
+      produto.pathProduto = this.pathProduto;
+      this.itemService.salvar(produto).subscribe(produtoRetorno => {
+        console.log('funcionou');
+      }, erro => {
+        console.log(erro);
+      });
     }, erro => {
       console.log(erro);
       console.log('fim upload')
     });
-    this.itemService.salvar(produto).subscribe(produtoRetorno => {
-      console.log('funcionou');
-    }, erro => {
-      console.log(erro);
-    })
+
   }
 
   listar(){

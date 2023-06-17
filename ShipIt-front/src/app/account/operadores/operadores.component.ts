@@ -29,6 +29,8 @@ export class OperadoresComponent implements OnInit {
     })
   }
 
+
+
   deletar(idUsuario : number){
     this.usuarioService.deletar(idUsuario).subscribe(usuario=>{
       this.listar();
