@@ -1,38 +1,15 @@
-@import './styles.scss';
-.cards_produtos{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
-h5{
-    font-weight: bold;
-}
-
+@import '../../../styles.scss';
 .div_info{
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.botao_comprar{
-    background-color: $cor-principal;
-    padding: 10px 20px;
-    color: $cor-secundaria;
-    border-radius: 0.6rem;
-    text-decoration: none;
+h5{
+  font-weight: bold;
 }
-
-.botao_comprar:hover{
-    background-color: $hover-principal-light;
-}
-
 .preco{
-    font-size: 1.4rem;
-    font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: bold;
 }

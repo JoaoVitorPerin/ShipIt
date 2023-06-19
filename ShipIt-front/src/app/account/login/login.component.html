@@ -1,4 +1,5 @@
-  <div class="container">
+<div [innerHTML]="mensagem"></div>
+  <div class="container" >
       <div class="login">
           <a routerLink="/home">
               <img class="logoLogin" src="../../assets/images/logoBranca.png" alt="Logo ShipIt">
@@ -11,20 +12,15 @@
           <br>
           <button mat-raised-button color="primary" (click)="login()">ENTRAR</button>
       </div>
-
       <div class="cadastro">
           <a routerLink="/home">
               <img class="logoCadastro" src="../../assets/images/logoHorizontal.png" alt="Logo ShipIt">
           </a>
           <h1>Crie a sua conta!</h1>
-          <!--input type="text" placeholder="Usuário">
-          <br-->
           <input type="text" placeholder="Nome"  name="nome" [(ngModel)]= "nomeUsuario">
           <br>
           <input type="email" placeholder="Email" name="login" [(ngModel)]= "emailUsuario">
           <br>
-          <!--input type="date" placeholder="Data de nascimento" class="datepicker">
-          <br-->
           <input type="password" placeholder="Senha" name="senha" [(ngModel)] = "senhaUsuario">
           <br>
           <input type="password" placeholder="Confirmar Senha" name="Confirmasenha" [(ngModel)] = "confirmaSenha" >
@@ -32,3 +28,4 @@
           <button mat-raised-button color="primary" (click)="salvar()">CADASTRAR-SE</button>
       </div>
   </div>
+

@@ -38,6 +38,10 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    public List<Produto> getProdutoByUsuario(Long id) {
+        return produtoRepository.getProdutoByUsuario(id);
+    }
+
     public Produto buscarPorId(Long id) {
         return produtoRepository.findById(id).get();
     }

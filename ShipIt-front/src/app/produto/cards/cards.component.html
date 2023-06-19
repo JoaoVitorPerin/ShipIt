@@ -1,13 +1,23 @@
-<div class="cards_produtos">
-    <div class="card" style="width: 18rem;" *ngFor=" let produto of listProdutos ">
-        <img class="card-img-top" src="{{produto.pathProduto}}" alt="Imagem de capa do card">
+<section style="margin:30px; padding: 0;">
+  <h2 style="color: #004AAD">PRINCIPAIS PRODUTOS</h2>
+  <div class="row">
+    <div class="card col-sm-3" *ngFor="let produto of listProdutos">
+      <img class="imagem-card" height="auto;" width="auto;" style="magin: 0; padding: 0;" src={{produto.pathProduto}} alt="Card image cap">
+      <div class="container">
         <div class="card-body">
-            <h5 class="card-title">{{produto.nomeProduto}}</h5>
-            <p class="card-text">{{produto.descricaoProduto}}</p>
-            <div class="div_info">
-                <p class="preco">R$ {{produto.valorProduto}}</p>
-                <a href="#" class="botao_comprar">COMPRAR</a>
-            </div>
+          <h5 class="card-title">{{produto.nomeProduto}}</h5>
+          <p class="card-text">{{produto.descricaoProduto}}</p>
+          <div class="div_info">
+            <p class="preco">R$ {{produto.valorProduto}}</p>
+          </div>
         </div>
+        <div class="card-footer bg-transparent border-primary">
+          <button mat-button class="card-botao btn btn-primary btn-xs col-sm-12"
+                  style="background-color: #004AAD; color: white;" (click)="comprar(produto.idProduto)">
+            COMPRAR
+          </button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>

@@ -23,6 +23,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { ProdutosComponent } from './produto/produtos/produtos.component';
+import { PagamentoComponent } from './pagamento/pagamento/pagamento.component';
+import { CreatePagamentoComponent } from './pagamento/create-pagamento/create-pagamento.component';
+import { EditOperadoresComponent } from './account/edit-operadores/edit-operadores.component';
+import { CarrinhoComponent } from './pedido/carrinho/carrinho.component';
+import { CreateCompraComponent } from './pedido/create-compra/create-compra.component';
+import { HomeRestrictComponent } from './home-restrict/home-restrict.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +43,12 @@ import { ProdutosComponent } from './produto/produtos/produtos.component';
     AdminComponent,
     OperadoresComponent,
     ProdutosComponent,
+    PagamentoComponent,
+    CreatePagamentoComponent,
+    EditOperadoresComponent,
+    CarrinhoComponent,
+    CreateCompraComponent,
+    HomeRestrictComponent,
   ],
   imports: [
     BrowserModule,

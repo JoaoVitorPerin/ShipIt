@@ -37,6 +37,9 @@ public class Produto {
     @Column(name = "path_produto", nullable = false)
     private String pathProduto;
 
+    @Transient
+    private String idUsuario;
+
     @ManyToOne
     @JoinColumn(name="usuario_id_usuario", referencedColumnName="id_usuario")
     private Usuario usuarioIdUsuario;
@@ -105,6 +108,14 @@ public class Produto {
         this.categoriaProduto = categoriaProduto;
     }
 
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,9 +134,13 @@ public class Produto {
         return "Produto{" +
                 "idProduto=" + idProduto +
                 ", descricaoProduto='" + descricaoProduto + '\'' +
+                ", nomeProduto='" + nomeProduto + '\'' +
+                ", categoriaProduto='" + categoriaProduto + '\'' +
                 ", valorProduto=" + valorProduto +
                 ", quantidadeEstoqueProduto=" + quantidadeEstoqueProduto +
                 ", pathProduto='" + pathProduto + '\'' +
+                ", idUsuario='" + idUsuario + '\'' +
+                ", usuarioIdUsuario=" + usuarioIdUsuario +
                 '}';
     }
 }

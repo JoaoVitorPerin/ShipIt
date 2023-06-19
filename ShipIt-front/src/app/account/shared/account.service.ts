@@ -1,6 +1,6 @@
+import { UsuarioModel } from './../model/usuario.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UsuarioModel } from '../model/usuario.model';
 import { Autenticacao } from '../model/login.model';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -27,8 +27,18 @@ export class AccountService {
     return this.httpClient.post<any>("http://localhost:8080/usuario/login",autenticacao);
   }
 
-  salvar(usuarioModel : any){
-    return this.httpClient.post<any>("http://localhost:8080/usuario/salvar",usuarioModel);
+  salvar(UsuarioRequestModel : any){
+    return this.httpClient.post<any>("http://localhost:8080/usuario/salvar",UsuarioRequestModel);
+  }
+
+  update(UsuarioModel : any){
+    let httpheaders=new HttpHeaders()
+    .set('Content-type','application/Json')
+    .set('Authorization','Bearer ' + localStorage.getItem('token'));
+    let options={
+      headers:httpheaders
+    };
+    return this.httpClient.post<any>("http://localhost:8080/usuario/update",UsuarioModel, options);
   }
 
   listar(){
@@ -38,17 +48,28 @@ export class AccountService {
     let options={
       headers:httpheaders
     };
-    return this.httpClient.get<UsuarioModel[]>("http://localhost:8080/usuario/listarAll", options);
+
+    return this.httpClient.get<UsuarioModel[]>("http://localhost:8080/usuario/getUsuarioByaccess/"+localStorage.getItem('userId'), options);
   }
 
-
-  deletar(usuarioid:number):Observable<number>{
+  getUsuarioById(usuarioid:string){
     let httpheaders=new HttpHeaders()
-    .set('Content-type','application/Json');
+    .set('Content-type','application/Json')
+    .set('Authorization','Bearer ' + localStorage.getItem('token'));
     let options={
       headers:httpheaders
     };
-    return this.httpClient.delete<number>("http://localhost:8080/usuario"+ "/" + usuarioid);
+    return this.httpClient.get<any>("http://localhost:8080/usuario/listar/" + usuarioid, options);
+  }
+
+  deletar(usuarioid:number):Observable<number>{
+    let httpheaders=new HttpHeaders()
+    .set('Content-type','application/Json')
+    .set('Authorization','Bearer ' + localStorage.getItem('token'));
+    let options={
+      headers:httpheaders
+    };
+    return this.httpClient.delete<number>("http://localhost:8080/usuario/" + usuarioid, options);
   }
 
 }

@@ -1,7 +1,7 @@
 package br.pucpr.shipIt.pedidoitem.entity;
 
 
-import br.pucpr.shipIt.pedido.entity.Pedido;
+import br.pucpr.shipIt.usuario.pedido.entity.Pedido;
 import br.pucpr.shipIt.produto.entity.Produto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -30,6 +30,12 @@ public class PedidoItem {
     @NotNull(message = "O SubTotal do produto é uma informação obrigatória")
     @Column(name = "subTotal_produto")
     private BigDecimal subTotalProduto;
+
+    @Transient
+    private String produtoId;
+
+    @Transient
+    private String pedidoId;
 
     @NotNull(message = "A quantidade é uma informação obrigatória")
     @Column(name = "quantidade_produto")
@@ -75,6 +81,28 @@ public class PedidoItem {
         this.quantidadeProduto = quantidadeProduto;
     }
 
+    public String getProdutoId() {
+        if (getProdutoIdProduto() != null){
+            return ""+getProdutoIdProduto().getIdProduto();
+        }
+        return produtoId;
+    }
+
+    public void setProdutoId(String produtoId) {
+        this.produtoId = produtoId;
+    }
+
+    public String getPedidoId() {
+        if(getPedidoIdPedido() != null){
+            return ""+getPedidoIdPedido().getIdPedido();
+        }
+        return pedidoId;
+    }
+
+    public void setPedidoId(String pedidoId) {
+        this.pedidoId = pedidoId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,6 +123,8 @@ public class PedidoItem {
                 ", pedidoIdPedido=" + pedidoIdPedido +
                 ", produtoIdProduto=" + produtoIdProduto +
                 ", subTotalProduto=" + subTotalProduto +
+                ", produtoId='" + produtoId + '\'' +
+                ", pedidoId='" + pedidoId + '\'' +
                 ", quantidadeProduto=" + quantidadeProduto +
                 '}';
     }

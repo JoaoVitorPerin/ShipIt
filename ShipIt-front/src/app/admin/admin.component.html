@@ -1,38 +1,55 @@
 <router-outlet></router-outlet>
-<section>
+  <div [innerHTML]="mensagem"></div>
   <div class="card" style="margin: 20px;">
     <img src="../../assets/images/STATIONERY.png" width="200px"  class="d-block w-100" alt="...">
+    <h2 class="card-header" style="background-color: #1C98ED; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">Aqui você pode gerenciar seu sistema!</h2>
     <div class="card-body">
       <div class="row" style="margin: 5px;">
-        <div class="col-sm-7">
+        <div class="col-sm-5">
           <div class="card">
-            <h2 class="card-header" style="background-color: #1C98ED; color: #004AAD;">Aqui você pode gerenciar seu sistema!</h2>
+            <h2 class="card-header" style="background-color: #1C98ED; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">Opções de sistema</h2>
             <div class="card-body">
-              <img src="../../assets/images/STATIONERY2.png" width="300px"  class="d-block w-100" alt="...">
+              <div class="row" *ngIf="isAdmin">
+                <div class="col-sm-12">
+                  <a href="/operadores" class="btn btn-primary col-sm-12" style="background-color: #1C98ED;  color: black;">Gerenciar operadores [Admin]</a>
+                  <hr>
+                </div>
+              </div>
+              <div class="row" *ngIf="!isAdmin">
+                <div class="col-sm-12">
+                  <a href="/operadores" class="btn btn-primary col-sm-12" style="background-color: #1C98ED;  color: black;">Minha Conta</a>
+                  <hr>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a href="/produtos" class="btn btn-primary col-sm-12" style="background-color: #1C98ED;  color: black;">Gerenciar Produtos </a>
+                  <hr>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a href="/pagamento" class="btn btn-primary col-sm-12" style="background-color: #1C98ED; color: black;">Gerenciar Formas de Pagamento</a>
+                  <hr>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a href="/pagamento" class="btn btn-primary col-sm-12" style="background-color: #1C98ED; color: black;">Gerenciar Vendas</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-7">
           <div class="card">
-            <h2 class="card-header" style="background-color: #1C98ED; color: #004AAD;">Minha conta</h2>
             <div class="card-body">
-              <a href="/operadores" class="btn btn-primary" style="background-color: #004AAD;">Gerenciar operadores [Admin]</a>
-              <br>
-              <br>
-              <a href="/operadores" class="btn btn-primary" style="background-color: #004AAD;">Minha Conta</a>
-              <br>
-              <br>
-              <a href="/produtos" class="btn btn-primary" style="background-color: #004AAD;">Gerenciar meus Produtos </a>
-              <br>
-              <br>
-              <a href="/pedido" class="btn btn-primary" style="background-color: #004AAD;">Gerenciar meus Pedidos</a>
-              <br>
-              <br>
-              <a href="/pagamento" class="btn btn-primary" style="background-color: #004AAD;">Gerenciar cartões</a>
+              <a href="/carrinho" style="background-color: #1C98ED; border-radius: 5px;">
+                <img src="../../assets/images/STATIONERY2.png" width="300px"  class="d-block w-100" alt="...">
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>

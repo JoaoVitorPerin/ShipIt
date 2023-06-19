@@ -1,6 +1,8 @@
 export class UsuarioModel{
-    idUsuario: number | undefined;
-    nome?: string;
-    login?: string;
-    senha?: string;
+  idUsuario: number | undefined;
+  nomeUsuario?: string;
+  emailUsuario?: string;
+  senhaUsuario?: string;
+  adminUsuario?: string;
+  admin?: string = '';
 }

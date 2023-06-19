@@ -10,7 +10,7 @@ export class NavBarRestrictComponent {
   public isDarkTheme = false;
   public isIconsToggled: boolean = false;
   public body = document.body;
-
+  public nomeUsuario = localStorage.getItem('userNome');
   ngOnInit() {
     var theme = localStorage.getItem("theme");
     if(theme === 'dark'){
@@ -26,6 +26,7 @@ export class NavBarRestrictComponent {
 
   sair(){
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('userId');
     window.location.href = '/home';
   }
 

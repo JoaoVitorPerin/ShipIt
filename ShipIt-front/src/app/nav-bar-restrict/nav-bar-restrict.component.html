@@ -1,88 +1,108 @@
 <ng-container *ngIf="!isDarkTheme; else darkTheme">
   <header id="header-light">
     <nav class="cabecalho navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand mr-lg-5 ml-lg-5" href="/home"><img id="logo" class="logo" src="../../assets/images/logoHorizontal.png"></a>
+      <a class="navbar-brand mr-lg-5 ml-lg-5" href="/home-restrict"><img id="logo" class="logo" src="../../assets/images/logoHorizontal.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse mr-lg-5" id="navbarTogglerDemo03">
-        <form class="form-inline ml-lg-5 mt-3 mr-auto">
+        <form class="form-inline ml-lg-2 mt-3 mr-auto">
           <input class="form-control mr-sm-2 input-busca" type="search" placeholder="Search" aria-label="Search">
           <button id="botao-busca" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <div class="ml-lg-2 mt-3"style="text-decoration: none; color: #004AAD; margin-top: 10px; margin-right: 15px; margin-left: 0px;">
+          <h5>Olá, {{nomeUsuario}} </h5>
+        </div>
         <ul class="navbar-nav mt-2 mt-lg-0 my-2 my-lg-0 align-middle">
-          <a class="nav-link ml-3" href="#">
+          <a class="nav-link ml-2" href="/carrinho">
             <li class="nav-item row">
               <img id="img-carrinho" class="icone mr-lg-4" src="../../assets/icons/cart-dark.svg" alt="icon carrinho">
               <span class="texto-nav-link align-middle mt-2 ml-2" id="span-carrinho">Carrinho</span>
             </li>
           </a>
-          <a class="nav-link ml-3" href="#" (click)="toggle()">
+          <a class="nav-link ml-2" href="#" (click)="toggle()">
             <li class="nav-item row">
               <img id="img-theme" class="icone-moon mr-lg-4 mt-1" src="../../assets/icons/moon-dark.svg" alt="icon mudar tema">
+              <span class="texto-nav-link align-middle mt-2 ml-2" id="span-theme">Tema escuro</span>
             </li>
           </a>
-          <a class="nav-link ml-3" href="/admin">
+          <a class="nav-link ml-2" href="/admin">
             <li class="nav-item row">
               <img id="img-perfil" class="icone mr-lg-4" src="../../assets/icons/config-dark.svg" alt="icon perfil">
               <span class="texto-nav-link align-middle mt-2 ml-2" id="span-perfil">Perfil</span>
             </li>
           </a>
+          <a class="nav-link ml-2">
+            <li class="nav-item row">
+              <div style="text-decoration: none; color: #004AAD;">
+                <button mat-raised-button color="primary" class="principalBotao" (click)="sair()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                  </svg>
+                  SAIR
+                </button>
+              </div>
+            </li>
+          </a>
         </ul>
       </div>
-      <div style="text-decoration: none; color: #004AAD;">
-        <button mat-raised-button color="primary" class="principalBotao" (click)="sair()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-          </svg>
-          SAIR
-        </button>
-      </div>
+
+
     </nav>
   </header>
 </ng-container>
 <ng-template #darkTheme>
   <header id="header-dark">
     <nav class="cabecalho navbar navbar-expand-lg navbar-light bg-dark">
-      <a class="navbar-brand mr-lg-5 ml-lg-5" href="/home"><img id="logo" class="logo" src="../../assets/images/logoBranca.png"></a>
+      <a class="navbar-brand mr-lg-5 ml-lg-5" href="/home-restrict"><img id="logo" class="logo" src="../../assets/images/logoBranca.png"></a>
       <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse mr-lg-5" id="navbarTogglerDemo03">
-        <form class="form-inline ml-lg-5 mt-3 mr-auto">
+        <form class="form-inline ml-lg-2 mt-3 mr-auto">
           <input class="form-control mr-sm-2 input-busca" type="search" placeholder="Search" aria-label="Search">
           <button id="botao-busca" class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <div class="ml-lg-2 mt-3"style="text-decoration: none; color: #004AAD; margin-top: 10px; margin-right: 15px; margin-left: 0px;">
+          <h5>Olá, {{nomeUsuario}} </h5>
+        </div>
         <ul class="navbar-nav mt-2 mt-lg-0 my-2 my-lg-0 align-middle">
-          <a class="nav-link ml-3" href="#">
+          <a class="nav-link ml-2" href="/carrinho">
             <li class="nav-item row">
               <img id="img-carrinho" class="icone mr-lg-4" src="../../assets/icons/cart-light.svg" alt="icon carrinho">
               <span class="texto-nav-link align-middle mt-2 ml-2" id="span-carrinho">Carrinho</span>
             </li>
           </a>
-          <a class="nav-link ml-3" href="#" (click)="toggle()">
+          <a class="nav-link ml-2" href="#" (click)="toggle()">
             <li class="nav-item row">
               <img id="img-theme" class="icone-moon mr-lg-4 mt-1" src="../../assets/icons/sun-light.svg" alt="icon mudar tema">
+              <span class="texto-nav-link align-middle mt-2 ml-2" id="span-theme">Tema claro</span>
             </li>
           </a>
-          <a class="nav-link ml-3" href="/admin">
+          <a class="nav-link ml-2" href="/admin">
             <li class="nav-item row">
               <img id="img-perfil" class="icone mr-lg-4" src="../../assets/icons/config-light.svg" alt="icon perfil">
               <span class="texto-nav-link align-middle mt-2 ml-2" id="span-perfil">Perfil</span>
             </li>
           </a>
+          <a class="nav-link ml-2">
+            <li class="nav-item row">
+              <div style="text-decoration: none; color: #FFFFFF;">
+                <button mat-raised-button color="primary" class="principalBotao" (click)="sair()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                  </svg>
+                  SAIR
+                </button>
+              </div>
+            </li>
+          </a>
         </ul>
       </div>
-      <div style="text-decoration: none; color: #FFFFFF;">
-        <button mat-raised-button color="primary" class="principalBotao" (click)="sair()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-          </svg>
-          SAIR
-        </button>
-      </div>
+
     </nav>
   </header>
 </ng-template>

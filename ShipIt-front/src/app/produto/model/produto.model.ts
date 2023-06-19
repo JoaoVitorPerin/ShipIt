@@ -8,5 +8,5 @@ export class ProdutoModel{
   valorProduto?: number = 0.00;
   quantidadeEstoqueProduto?: number = 0;
   pathProduto?: string;
-  usuario? : UsuarioModel;
+  usuario? : string;
 }

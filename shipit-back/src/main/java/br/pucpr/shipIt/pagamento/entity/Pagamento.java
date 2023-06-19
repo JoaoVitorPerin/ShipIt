@@ -25,6 +25,9 @@ public class Pagamento {
     @JoinColumn(name="usuario_id_usuario", referencedColumnName="id_usuario")
     private Usuario usuarioIdUsuario;
 
+    @Transient
+    private String idUsuario;
+
     public Long getIdPagamento() {
         return idPagamento;
     }
@@ -53,6 +56,14 @@ public class Pagamento {
         return usuarioIdUsuario;
     }
 
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     public void setUsuarioIdUsuario(Usuario usuarioIdUsuario) {
         this.usuarioIdUsuario = usuarioIdUsuario;
     }
@@ -76,6 +87,8 @@ public class Pagamento {
                 "idPagamento=" + idPagamento +
                 ", numeroCartao='" + numeroCartao + '\'' +
                 ", formaPgtoPagamento='" + formaPgtoPagamento + '\'' +
+                ", usuarioIdUsuario=" + usuarioIdUsuario +
+                ", idUsuario='" + idUsuario + '\'' +
                 '}';
     }
 }

@@ -11,16 +11,32 @@ export class OperadoresComponent implements OnInit {
   idUsuario: number | undefined;
   nomeUsuario: string = '';
   emailUsuario: string = '';
-
-
-  displayedColumns: string[] = ['idUsuario', 'nomeUsuario', 'emailUsuario', 'delete'];
-  usuarios : UsuarioModel[] = [];
+  isAdmin = false;
 
   constructor(private usuarioService : AccountService) { }
 
+  displayedColumns: string[] = [];
+
   ngOnInit(): void {
     this.listar()
+
+    var idUser = ""+ localStorage.getItem('userId');
+    this.usuarioService.getUsuarioById(idUser).subscribe(result => {
+      if(result.admin === "admin"){
+        this.isAdmin = true;
+        this.displayedColumns = ['idUsuario', 'nomeUsuario', 'emailUsuario', 'update', 'delete'];
+      } else {
+        this.isAdmin = false;
+        this.displayedColumns = ['idUsuario', 'nomeUsuario', 'emailUsuario', 'update'];
+      }
+    }, erro => {
+      console.log(erro);
+      this.isAdmin = false;
+    })
+
   }
+
+  usuarios : UsuarioModel[] = [];
 
   listar(){
     this.usuarioService.listar().subscribe(usuarios => {
@@ -35,6 +51,11 @@ export class OperadoresComponent implements OnInit {
     this.usuarioService.deletar(idUsuario).subscribe(usuario=>{
       this.listar();
     })
+  }
+
+  alterar(idUsuario : number){
+    localStorage.setItem('idToUpdate', idUsuario+'');
+    window.location.href = "/editOperador";
   }
 
 }

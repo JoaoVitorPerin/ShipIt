@@ -1,3 +1,4 @@
+import { UsuarioModel } from './../../account/model/usuario.model';
 import { CadastroItemModel } from '../model/cadastro_item.model';
 import { ItemService } from '../shared/item.service';
 import { HttpClient, HttpEventType, HttpProgressEvent } from '@angular/common/http';
@@ -26,8 +27,11 @@ export class CadastroItemComponent implements OnInit {
   public nomeArquivo: string = '';
   public formData = new FormData;
   public pathProduto : string = '';
+  public idUsuario: string = '';
+  public UsuarioModel? : UsuarioModel;
   constructor(
     private itemService: ItemService,
+    private accountService: AccountService,
     private http: HttpClient,
   ) { }
 
@@ -50,28 +54,45 @@ export class CadastroItemComponent implements OnInit {
     console.log('descricao = ' + this.descricaoProduto);
     console.log('valor = ' + this.valorProduto);
     console.log('produto = ' + this.quantidadeEstoqueProduto);
-    //console.log('img = ' + this.pathImg);
+    console.log('img = ' + this.pathProduto);
+    console.log('img = ' + this.pathProduto);
+    this.idUsuario = ""+ localStorage.getItem('userId');
 
     let produto = new CadastroItemModel();
     produto.nomeProduto = this.nomeProduto;
     produto.descricaoProduto = this.descricaoProduto;
+    produto.categoriaProduto = "varejo";
     produto.valorProduto = this.valorProduto;
     produto.quantidadeEstoqueProduto = this.quantidadeEstoqueProduto;
 
-    console.log(this.formData)
-    this.itemService.upload(this.formData).subscribe(uploadRetorno => {
-      console.log(uploadRetorno.path);
-      this.pathProduto = uploadRetorno.path;
-      produto.pathProduto = this.pathProduto;
-      this.itemService.salvar(produto).subscribe(produtoRetorno => {
-        console.log('funcionou');
+    //pego meu usuário do banco
+
+      produto.idUsuario = "" +this.idUsuario;
+      console.log(UsuarioModel)
+      console.log('funcionou user');
+      //Salvo meu arquivo no Firebase
+      this.itemService.upload(this.formData).subscribe(uploadRetorno => {
+        console.log(uploadRetorno.path);
+        this.pathProduto = uploadRetorno.path;
+        produto.pathProduto = this.pathProduto;
+        console.log('funcionou upload');
+        //Salvo o meu produto
+        console.log(produto)
+        this.itemService.salvar(produto).subscribe(produtoRetorno => {
+          console.log('funcionou salvar');
+          window.location.href = "/produtos";
+        }, erro => {
+          console.log(erro);
+          console.log('fim salvar erro');
+        });
       }, erro => {
         console.log(erro);
+        console.log('fim upload erro');
       });
-    }, erro => {
-      console.log(erro);
-      console.log('fim upload')
-    });
+
+
+
+
 
   }
 
@@ -80,4 +101,7 @@ export class CadastroItemComponent implements OnInit {
       console.log(produtoRetorno);
     })
   }
+
+
+
 }

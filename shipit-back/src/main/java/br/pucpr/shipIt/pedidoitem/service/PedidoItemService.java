@@ -4,6 +4,7 @@ import br.pucpr.shipIt.pedidoitem.entity.PedidoItem;
 import br.pucpr.shipIt.pedidoitem.repository.PedidoItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -21,11 +22,15 @@ public class PedidoItemService {
         return pedidoItemRepository.findAll();
     }
 
-    public PedidoItem buscarPorId(Integer id) {
+    public List<PedidoItem> getPedidoItemByPedidoId(Long id) {
+        return pedidoItemRepository.getPedidoItemByPedidoId(id);
+    }
+
+    public PedidoItem buscarPorId(Long id) {
         return pedidoItemRepository.findById(id).get();
     }
 
-    public void excluir(Integer id) {
+    public void excluir(Long id) {
         pedidoItemRepository.deleteById(id);
     }
 

@@ -24,7 +24,7 @@ export class ProdutosComponent {
   }
 
   listar(){
-    this.produtoService.listar().subscribe(produtos => {
+    this.produtoService.listarMeusProdutos().subscribe(produtos => {
       console.log(produtos);
       this.produtos = produtos;
     })

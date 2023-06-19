@@ -23,12 +23,12 @@ public class UsuarioService {
         var usuario = usuarioRepository.findByLogin(credenciais.getLogin());
         if (usuario == null) return null;
         if (!usuario.getSenhaUsuario().equals(credenciais.getSenha())) return null;
-
         var token = jwt.createToken(usuario);
         return new LoginResponse(token, usuario);
     }
 
     public Usuario salvar(UsuarioRequest request) {
+
         var usuario = new Usuario();
         usuario.setEmailUsuario(request.getLogin());
         usuario.setSenhaUsuario(request.getSenha());
@@ -37,7 +37,10 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    //@RolesAllowed("USUARIO")
+    public Usuario update(Usuario user){
+        return usuarioRepository.save(user);
+    }
+
     public List<Usuario> listar() {
         return usuarioRepository.findAll();
     }

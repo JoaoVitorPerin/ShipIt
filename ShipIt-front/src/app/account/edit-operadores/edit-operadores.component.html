@@ -1,0 +1,23 @@
+<main>
+  <a [routerLink]="['/home']"><img src="../../assets/images/logoHorizontal.png" alt="Logo ShipIt"></a>
+  <form class="formulario">
+      <div class="form-group">
+          <label for="exampleInputEmail1">Nome:</label>
+          <input type="text" class="form-control" placeholder="Nome do usuário" name="nomeUsuario" [(ngModel)]= "nomeUsuario">
+      </div>
+      <div class="form-group">
+          <label for="exampleFormControlTextarea1">Login:</label>
+          <input type="text" class="form-control" placeholder="E-mail do usuário" name="emailUsuario" [(ngModel)]= "emailUsuario">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Senha: (informe caso deseje alterar a senha)</label>
+          <input type="number" class="form-control" placeholder="*******" name="senhaUsuario"[(ngModel)]= "senhaUsuario">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Confirmar senha:</label>
+          <input type="number" class="form-control" placeholder="*******" name="senhaUsuarioConf" [(ngModel)]= "senhaUsuarioConf">
+        </div>
+  </form>
+  <button type="button" class="botao_cadastrar" (click)="update()">Alterar</button>
+  <a href="/operadores" class="btn btn-danger" >VOLTAR</a>
+</main>

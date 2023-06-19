@@ -34,16 +34,18 @@ public class Usuario {
     private String emailUsuario;
 
     @NotNull(message = "A senha é uma informação obrigatória")
-    @Column(name = "senha_usuario", nullable = false, length = 255, unique = true)
+    @Column(name = "senha_usuario", nullable = false, length = 255)
     private String senhaUsuario;
 
-    //@NotNull
-    //@ElementCollection
-    //@CollectionTable(name = "ROLES", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "admin_usuario")
+    private boolean adminUsuario;
+
     @Transient
-   // @Column(name = "ROLE")
     @ToString.Exclude
     private Set<String> roles = new HashSet<>();
+
+    @Transient
+    private String admin;
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -85,6 +87,25 @@ public class Usuario {
         this.roles = roles;
     }
 
+    public boolean isAdminUsuario() {
+        return adminUsuario;
+    }
+
+    public void setAdminUsuario(boolean adminUsuario) {
+        this.adminUsuario = adminUsuario;
+    }
+
+    public String getAdmin() {
+        if(isAdminUsuario()){
+            return "admin";
+        }
+        return admin;
+    }
+
+    public void setAdmin(String admin) {
+        this.admin = admin;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -105,8 +126,8 @@ public class Usuario {
                 ", nomeUsuario='" + nomeUsuario + '\'' +
                 ", emailUsuario='" + emailUsuario + '\'' +
                 ", senhaUsuario='" + senhaUsuario + '\'' +
+                ", adminUsuario=" + adminUsuario +
+                ", admin='" + admin + '\'' +
                 '}';
     }
-
-
 }
