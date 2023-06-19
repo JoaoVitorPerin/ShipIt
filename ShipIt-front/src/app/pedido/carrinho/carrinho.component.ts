@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PedidoService } from '../service/pedido.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PedidoItemProdutoModel } from '../model/pedidoItemProduto.model';
 import { PedidoItemModel } from '../model/pedidoItem.model';
@@ -16,8 +15,7 @@ export class CarrinhoComponent {
   public listPedidoItem: Array<PedidoItemModel> = [];
 
 
-  constructor(private httpClient: HttpClient,
-    private pedidoService : PedidoService) { }
+  constructor(private httpClient: HttpClient) { }
 
     ngOnInit(){
       this.listarPedidoItem();
