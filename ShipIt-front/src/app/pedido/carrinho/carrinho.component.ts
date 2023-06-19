@@ -4,6 +4,7 @@ import { PedidoItemProdutoModel } from '../model/pedidoItemProduto.model';
 import { PedidoItemModel } from '../model/pedidoItem.model';
 import { ProdutoModel } from 'src/app/produto/model/produto.model';
 import { Observable } from 'rxjs';
+import { PedidoService } from '../service/pedido.service';
 @Component({
   selector: 'app-carrinho',
   templateUrl: './carrinho.component.html',
@@ -15,13 +16,15 @@ export class CarrinhoComponent {
   public listPedidoItem: Array<PedidoItemModel> = [];
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private pedidoService: PedidoService) { }
 
     ngOnInit(){
       this.listarPedidoItem();
     }
 
     listarPedidoItem(){
+      this.listPedidoProdutoItem = [];
       let httpheaders=new HttpHeaders()
       .set('Content-type','application/Json')
       .set('Authorization','Bearer ' + localStorage.getItem('token'));
@@ -61,15 +64,12 @@ export class CarrinhoComponent {
       );
     }
 
-    deletar(idPedidoItem:number | undefined):Observable<number>{
-      console.log("entrei");
-      let httpheaders = new HttpHeaders()
-      .set('Content-type','application/Json')
-      .set('Authorization','Bearer ' + localStorage.getItem('token'));
-      let options={
-        headers:httpheaders
-      };
-      return this.httpClient.delete<number>("http://localhost:8080/pedidoItem/"+ idPedidoItem, options);
+    deletar(idPedidoItem : number | undefined){
+      this.pedidoService.deletar(idPedidoItem).subscribe(idPedidoItem=>{
+        this.listarPedidoItem();
+      })
     }
+
+
 
 }

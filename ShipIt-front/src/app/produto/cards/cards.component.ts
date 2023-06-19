@@ -36,7 +36,6 @@ export class CardsComponent {
   comprar(idProduto: number | undefined){
       //Primeiro crio o meu pedido
       this.idPedido = ""+ localStorage.getItem('idPedido');
-      alert(this.idPedido)
       if(this.idPedido != "" && this.idPedido != null && this.idPedido != "null"){
         console.log('entrei mas não deveria')
         this.addItemPedidoProduto(idProduto, this.idPedido);
